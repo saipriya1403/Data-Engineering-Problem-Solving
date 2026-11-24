@@ -16,3 +16,14 @@ df = spark.createDataFrame(
 )
 
 df.show()
+
+
+from pyspark.sql.functions import col
+
+result = df.withColumn(
+    "total_amount",
+    col("quantity") * col("unit_price")
+)
+
+result.show()
+
